@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="btn btn-success" href="/new">Cadastrar Nova Empresa</a>
+            <a class="btn btn-success" href="/newFuncio">Cadastrar E Listar Funcionários</a>
+            <a class="btn btn-success" href="/">Página Principal</a>
+          </li>
+        </ul>
+
+    </nav>
+     
+    <div class="divisao" class="col-12 col-md-8">
+        <h1>Edição de Funcionário</h1>
+    </div>
+
+    <div class="container-fluid" class="form-group" class="col-12 col-md-8">
+    <form action="/funceditar/<%= dadosfuncionario._id %>" method="POST">
+        <div class="form-group">
+          <label for="nomeFunc">Nome Funcionário:</label>
+          <input type="text" name="nomeFunc" class="form-control" id="nomeFunc" 
+                value="<%= dadosfuncionario.nomeFunc %>">     
+        </div>
+        <div class="form-group">
+          <label for="matricula">Matrícula:</label>
+          <input type="number" name="matricula" class="form-control" id="matricula" 
+                value="<%= dadosfuncionario.matricula %>">
+        </div>
+        <div class="form-group">
+            <label for="rg">RG:</label>
+            <input type="text" name="rg" class="form-control" id="rg" 
+                value="<%= dadosfuncionario.rg %>">     
+        </div>
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="number" name="cpf" class="form-control" id="cpf" 
+                value="<%= dadosfuncionario.cpf %>">     
+        </div>
+        <div class="form-group">
+            <label for="rua">Rua:</label>
+            <input type="text" name="rua" class="form-control" id="rua" 
+                value="<%= dadosfuncionario.rua %>">     
+        </div>
+        <div class="form-group">
+            <label for="numero">Número:</label>
+            <input type="number" name="numero" class="form-control" id="numero" 
+                value="<%= dadosfuncionario.numero %>">     
+        </div>
+        <div class="form-group">
+            <label for="bairro">Bairro:</label>
+            <input type="text" name="bairro" class="form-control" id="bairro" 
+                value="<%= dadosfuncionario.bairro %>">     
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" name="cidade" class="form-control" id="cidade" 
+                value="<%= dadosfuncionario.cidade %>">     
+        </div>
+
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </form>
+    </div>
+
+  
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+

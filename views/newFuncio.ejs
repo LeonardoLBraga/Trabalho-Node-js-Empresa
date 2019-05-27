@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="btn btn-success" href="/new">Cadastrar Nova Empresa</a>
+            <a class="btn btn-success" href="/newFuncio">Cadastrar E Listar Funcionários</a>
+            <a class="btn btn-success" href="/">Página Principal</a>
+          </li>
+        </ul>
+
+    </nav>
+     
+    <div class="divisao" class="col-12 col-md-8">
+        <h1>Cadastro de Funcionário</h1>
+    </div>
+
+    <div class="container-fluid" class="form-group" class="col-12 col-md-8">
+    <form action="/newFuncio" method="POST">
+        <div class="form-group">
+          <label for="nomeFunc">Nome Funcionário:</label>
+          <input type="text" name="nomeFunc" class="form-control" id="nomeFunc" >     
+        </div>
+        <div class="form-group">
+          <label for="matricula">Matrícula:</label>
+          <input type="number" name="matricula" class="form-control" id="matricula" >
+        </div>
+        <div class="form-group">
+            <label for="rg">RG:</label>
+            <input type="text" name="rg" class="form-control" id="rg" >     
+        </div>
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="number" name="cpf" class="form-control" id="cpf" >     
+        </div>
+        <div class="form-group">
+            <label for="rua">Rua:</label>
+            <input type="text" name="rua" class="form-control" id="rua" >     
+        </div>
+        <div class="form-group">
+            <label for="numero">Número:</label>
+            <input type="number" name="numero" class="form-control" id="numero" >     
+        </div>
+        <div class="form-group">
+            <label for="bairro">Bairro:</label>
+            <input type="text" name="bairro" class="form-control" id="bairro" >     
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" name="cidade" class="form-control" id="cidade" >     
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+    </div>
+
+
+    <div class="divisao" class="col-12 col-md-8">
+        <h1>Listar Empregados</h1>
+    </div>
+  
+  <div class="col-12 col-md-12">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="colgroup">Nome</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">RG</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Rua</th>
+        <th scope="col">Número</th>
+        <th scope="col">Bairro</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Deletar</th>
+        <th scope="col">Editar</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+        <% docsFuncio.forEach(function(dadosfuncionario){ %>
+          <tr>
+              <td><%= dadosfuncionario.nomeFunc  %></td>
+              <td><%= dadosfuncionario.matricula  %></td>
+              <td><%= dadosfuncionario.rg  %></td>
+              <td><%= dadosfuncionario.cpf  %></td>
+              <td><%= dadosfuncionario.rua  %></td>
+              <td><%= dadosfuncionario.numero  %></td>
+              <td><%= dadosfuncionario.bairro  %></td>
+              <td><%= dadosfuncionario.cidade  %></td>
+              <td><a href="/funceditar/<%= dadosfuncionario._id %>">
+              Editar
+              </a></td>
+              <td><a href="/funcdeletar/<%= dadosfuncionario._id %>" onclick="return confirm('Tem certeza que deseja excluir?')">
+              Excluir
+              </a></td>
+              
+  
+          </tr>
+        <%})%>
+    </tbody>
+  </table>
+  </div>
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="btn btn-success" href="/new">Cadastrar Nova Empresa</a>
+            <a class="btn btn-success" href="/newFuncio">Cadastrar E Listar Funcionários</a>
+            <a class="btn btn-success" href="/">Página Principal</a>
+          </li>
+        </ul>
+
+    </nav>
+     
+    <div class="divisao" class="col-12 col-md-8">
+        <h1>Edição de Empresas</h1>
+    </div>
+
+    <div class="container-fluid" class="form-group" class="col-12 col-md-8">
+    <form action="/editar/<%= dadosempresa._id %>" method="POST">
+
+        <div class="form-group">
+          <label for="nomeEmpresa">Nome Empresa:</label>
+          <input type="text" name="nome" class="form-control" id="nomeEmpresa" 
+                value="<%= dadosempresa.nome %>">     
+        </div>
+        <div class="form-group">
+          <label for="numero">Número:</label>
+          <input type="number" name="numero" class="form-control" id="numero" 
+                value="<%= dadosempresa.numero %>">
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </form>
+    </div>
+
+  
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
